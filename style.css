@@ -6,33 +6,39 @@
     font-family: 'Plus Jakarta Sans', sans-serif;
 }
 
-html {
-    scroll-behavior: smooth;
-}
-
-body {
+html, body {
+    width: 100%;
+    min-height: 100%;
+    margin: 0;
+    padding: 0;
     background-color: #ffffff;
     color: #0f172a;
-    width: 100%;
     overflow-x: hidden;
+    scroll-behavior: smooth;
     -webkit-font-smoothing: antialiased;
 }
 
-/* Full-Screen Wrapper */
+/* Full-Bleed Wrapper (No Box Container) */
 .main-container {
     width: 100%;
     min-height: 100vh;
     background-color: #ffffff;
-    padding: 0 4% 48px 4%;
+    margin: 0;
+    padding: 0;
 }
 
-/* 1. NAVBAR STYLING */
+/* 1. STICKY EDGE-TO-EDGE NAVBAR */
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 24px 0;
+    padding: 20px 5%;
     width: 100%;
+    background-color: #ffffff;
+    border-bottom: 1px solid #f1f5f9;
+    position: sticky;
+    top: 0;
+    z-index: 100;
 }
 
 .logo {
@@ -44,7 +50,7 @@ body {
 
 .nav-links {
     display: flex;
-    gap: clamp(16px, 2.5vw, 32px);
+    gap: clamp(16px, 2.5vw, 34px);
 }
 
 .nav-links a {
@@ -83,17 +89,17 @@ body {
     box-shadow: 0 10px 20px rgba(15, 23, 42, 0.15);
 }
 
-/* 2. HERO BANNER STYLING (Full Width & Dynamic Height) */
+/* 2. FULL-WIDTH HERO SECTION (Edge-to-Edge, No Box Corners) */
 .hero {
-    min-height: 75vh;
+    min-height: calc(100vh - 82px);
     width: 100%;
-    border-radius: 28px;
+    border-radius: 0;
     background: linear-gradient(rgba(14, 116, 144, 0.35), rgba(15, 23, 42, 0.5)),
                 url('https://images.unsplash.com/photo-1595435934249-5df7ed86e1c0?auto=format&fit=crop&w=1600&q=85') center/cover no-repeat;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding: 48px 5%;
+    padding: 56px 5%;
     color: #ffffff;
     position: relative;
 }
@@ -105,17 +111,17 @@ body {
 }
 
 .hero-content h1 {
-    font-size: clamp(32px, 3.8vw, 54px);
+    font-size: clamp(34px, 4.2vw, 60px);
     font-weight: 600;
     line-height: 1.15;
-    letter-spacing: -1px;
-    margin-bottom: 18px;
+    letter-spacing: -1.2px;
+    margin-bottom: 20px;
 }
 
 .hero-content p {
-    font-size: clamp(14px, 1.1vw, 16.5px);
+    font-size: clamp(15px, 1.15vw, 17px);
     color: #f1f5f9;
-    margin-bottom: 28px;
+    margin-bottom: 30px;
     line-height: 1.6;
 }
 
@@ -131,7 +137,7 @@ body {
     display: flex;
     align-items: center;
     gap: 14px;
-    font-size: 13px;
+    font-size: 13.5px;
     color: #e2e8f0;
     line-height: 1.4;
 }
@@ -146,8 +152,8 @@ body {
 }
 
 .avatars img {
-    width: 30px;
-    height: 30px;
+    width: 32px;
+    height: 32px;
     border-radius: 50%;
     border: 2px solid #ffffff;
     margin-left: -7px;
@@ -160,13 +166,13 @@ body {
 
 .social-links {
     display: flex;
-    gap: 20px;
+    gap: 22px;
 }
 
 .social-links a {
     color: #ffffff;
     text-decoration: none;
-    font-size: 13.5px;
+    font-size: 14px;
     border-bottom: 1px solid rgba(255, 255, 255, 0.5);
     padding-bottom: 3px;
     transition: opacity 0.25s ease;
@@ -178,7 +184,7 @@ body {
 
 /* 3. ABOUT SECTION STYLING */
 .about-section {
-    margin-top: 72px;
+    padding: 72px 5% 0 5%;
     width: 100%;
 }
 
@@ -200,11 +206,11 @@ body {
 }
 
 .about-header h2 {
-    font-size: clamp(20px, 2vw, 28px);
+    font-size: clamp(22px, 2.2vw, 30px);
     font-weight: 500;
     line-height: 1.4;
     letter-spacing: -0.4px;
-    max-width: 860px;
+    max-width: 900px;
 }
 
 .cards-grid {
@@ -214,9 +220,9 @@ body {
 }
 
 .card {
-    border-radius: 26px;
+    border-radius: 24px;
     padding: 32px;
-    min-height: 350px;
+    min-height: 360px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -339,7 +345,8 @@ body {
 /* 4. STATS SECTION */
 .stats-section {
     text-align: center;
-    margin: 72px 0;
+    padding: 72px 5% 0 5%;
+    width: 100%;
 }
 
 .stats-title {
@@ -355,7 +362,7 @@ body {
 }
 
 .stat-item h2 {
-    font-size: clamp(28px, 2.8vw, 38px);
+    font-size: clamp(28px, 2.8vw, 40px);
     font-weight: 700;
     letter-spacing: -0.8px;
     margin-bottom: 8px;
@@ -369,7 +376,7 @@ body {
 .divider {
     border: none;
     border-top: 1px solid #e2e8f0;
-    margin: 48px 0;
+    margin: 64px 5%;
 }
 
 /* 5. SERVICES SECTION */
@@ -378,11 +385,12 @@ body {
     grid-template-columns: 1fr 1.5fr;
     gap: 40px;
     align-items: start;
-    padding-bottom: 24px;
+    padding: 0 5% 72px 5%;
+    width: 100%;
 }
 
 .services-left h2 {
-    font-size: clamp(19px, 1.8vw, 24px);
+    font-size: clamp(20px, 1.9vw, 25px);
     font-weight: 500;
     line-height: 1.5;
     margin: 24px 0 32px 0;
@@ -395,8 +403,8 @@ body {
 }
 
 .service-card-big {
-    height: 330px;
-    border-radius: 26px;
+    height: 340px;
+    border-radius: 24px;
     padding: 24px;
     background: linear-gradient(to top, rgba(0, 0, 0, 0.65), transparent),
                 url('https://images.unsplash.com/photo-1622279457486-62dcc4a431d6?auto=format&fit=crop&w=900&q=85') center/cover no-repeat;
@@ -421,7 +429,7 @@ body {
 
 .card-footer p {
     font-size: 14.5px;
-    max-width: 200px;
+    max-width: 210px;
     line-height: 1.4;
 }
 
@@ -444,7 +452,7 @@ body {
 }
 
 .small-img-box {
-    height: 195px;
+    height: 205px;
     border-radius: 22px;
     padding: 18px;
     background: linear-gradient(to top, rgba(0, 0, 0, 0.55), transparent),
@@ -494,10 +502,9 @@ body {
    RESPONSIVE BREAKPOINTS (TABLET & MOBILE)
    ========================================= */
 
-/* Tablet View (1024px and below) */
 @media (max-width: 1024px) {
-    .main-container {
-        padding: 0 24px 36px 24px;
+    .navbar {
+        padding: 18px 5%;
     }
 
     .nav-links {
@@ -523,16 +530,7 @@ body {
     }
 }
 
-/* Mobile View (640px and below) */
 @media (max-width: 640px) {
-    .main-container {
-        padding: 0 16px 28px 16px;
-    }
-
-    .navbar {
-        padding: 18px 0;
-    }
-
     .nav-links {
         display: none;
     }
@@ -543,9 +541,8 @@ body {
     }
 
     .hero {
-        min-height: 65vh;
-        padding: 32px 18px;
-        border-radius: 22px;
+        min-height: 70vh;
+        padding: 36px 5%;
     }
 
     .hero-content h1 br,
